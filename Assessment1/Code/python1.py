@@ -1,95 +1,37 @@
-	# INSTRUCTIONS
 
-	# In case it is not clear, the Question appears first, then examples, then any hints and finally the function that you need to complete appears underneath:
-
-	# <QUESTION>
-
-	# <EXAMPLES>
-
-	# <HINT>
-
-	# You are NOT allowed access to the internet for this assessment, instead you should use the DOCUMENTATION that comes bundled with your Python installation.  You should already be comfortable accessing this documentation, but to summarise:
-
-	# Access Python from you CLI
-
-	# Type help() or for example help(str)
-
-
-
-	# <QUESTION 1>
-
-	# Define a function that can accept two strings as input and returns the string with maximum length to the console. 
-	
-	# If two strings have the same length, then the function should return both strings separated by a " ".
-
-	# In this case, the strings should be returned in the same order in which they were given.
-
-	# <EXAMPLES>
-
-	# one("hi","hello") → "hello"
-	# one("three", "two") → "three"
-	# one("three", "hello") → "three hello"
-
-	# <HINT>
-
-	# What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).
 
 def one(input1, input2):
-	return ""
+ a = [input1, input2]
+ if len(a[0]) == len(a[1]):
+    y = (a[0] + ' ' +  a[1])
+ else:
+    y = max(a , key = len)
+ return y
 
 
 
-
-	# <QUESTION 2>
-
-    # Return the string that is between the first and last appearance of "bert" in the given string
-	
-	# Return the empty string "" if there is not 2 occurances of "bert" 
-	
-	# IGNORE CASE
-    
-    # <EXAMPLES>
-
-	# two("bertclivebert") → "clive"
-	# two("xxbertfridgebertyy") → "fridge"
-	# two("xxBertfridgebERtyy") → "fridge"
-	# two("xxbertyy") → ""
-	# two("xxbeRTyy") → ""
-
-	# <HINT>
-
-	# What was the name of the function we have seen to seperate a String? How can we make a string all upper or lower case?
-	
-	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
+ 
 
 def two(input):
-	return ""
+    string = input.lower().split("bert")
+    print(string)
+    if len(string)%2 == 0:
+        return ''
+    else:
+        return "".join(string[(int(len(string)/2))])
 
 
-
-
-	# <QUESTION 3>
-
-    # given a number
-	# if this number is divisible by 3 return "fizz"
-	# if this number is divisible by 5 return "buzz"
-	# if this number is divisible by both 3 and 5 return "fizzbuzz"
-	# if this number is not divisible by 3 or 5 return "null"
-	    
-    # <EXAMPLES>
-
-	# three(3) → "fizz"
-	# three(10) → "buzz"
-	# three(15) → "fizzbuzz"
-	# three(8) → "null"
-
-	# <HINT>
-
-	# No Hints for this question
 
 def three(arg1):
-	return "null"
-
+ 
+ if arg1 % 3 == 0 and arg1 % 5 == 0:
+    return "fizzbuzz" 
+ if arg1 % 3 == 0:
+    return "fizz"
+ if arg1 % 5 == 0:
+    return "buzz"
+ else:
+    return "null"
 
 	# <QUESTION 4>
 
@@ -114,7 +56,20 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	return 0
+ num = arg1.split()
+ num = list(map(int, num)) 
+ print(num)
+ x =[]
+ result = 0
+ for i in num:
+     y = i
+     while y > 0:
+         rem = y % 10
+         result = result + rem
+         y = int(y/10)
+     x.append(y)
+ print(x)
+ return max(x)
 
 	# <QUESTION 5>
 
@@ -163,80 +118,45 @@ def five(input):
 
 
 def six(input):
+
     return False
 
-	# <QUESTION 7>
 
-    # Write a function which returns the integer number of vowels in a given string. 
-    # You should ignore case.
 
-	# <EXAMPLES>
+def seven(word):
+ x = list(word.lower())
+ y = list("aeiou")
+ count = 0
+ for i in x:
+    if i in y:
+        count += 1
+ return count
 
-    # seven("Hello") → 2
-    # seven("hEelLoooO") → 6
 
-	# <HINTS>
 
-	# How do we ignore case in a String? help(str) may offer some insight.
+def eight(x):
+    import math
+    return math.factorial(x)
 
-def seven(input):
-    return 0
 
-	# <QUESTION 8>
 
-	# Write a function which takes an input (between 1 and 10 inclusive) and multiplies it by all the numbers before it.
-	# eg If the input is 4, the function calculates 4x3x2x1 = 24 
+def nine (inputString, char):
+ x = inputString.replace(" ","")
+ x = list(x)
+ y = 0
+ for i in x:
+    if i == char:
+        y = x.index(i)
+ if y > 0:
+     return y+1
+ else:
+     return y-1 
 
-	# <EXAMPLES>
-
-	# eight(1) → 1
-	# eight(4) → 24
-	# eight(8) → 40320
-
-	# <HINT>
-
-	# You may need to create a list of numbers from 0 to i, take a look at help(range).
-
-def eight(input):
-	return 1
-
-	# <QUESTION 9>
-
-    # Given a string and a char, returns the position in the String where the char first appears.
-    # Ensure the positions are numbered correctly, please refer to the examples for guidance.
-    # DO NOT ignore case
-    # IGNORE whitespace
-    # If the char does not occur, return the number -1.
-    
-    # <EXAMPLES>
-
-	# nine("This is a Sentence","s") → 4
-	# nine("This is a Sentence","S") → 8
-	# nine("Fridge for sale","z") → -1
-
-	# <HINT>
-
-	# Take a look at the documentation for Strings, List and range.
-
-def nine(inputString, char):
-	return -1
-
-	# <QUESTION 10>
-
-    # Given a string, int and a char, return a boolean value if the 'nth' 
-    # (represented by the int provided) char of the String supplied is the same as the char supplied.
-    # The int provided will NOT always be less than than the length of the String.
-    # IGNORE case and Whitespace. 
-    
-    # <EXAMPLES>
-
-	# ten("The",2,'h') → True
-	# ten("AAbb",1,'b') → False
-	# ten("Hi-There",10,'e') → False
-
-	# <HINT>
-
-	# How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.
  
-def ten(string, int, char):
-	return False
+def ten(string, value, char):
+ x = string.lower()
+ y = x.index(char) + 1
+ if y == value:
+    return True
+ else:
+    return False
