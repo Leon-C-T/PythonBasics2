@@ -14,7 +14,6 @@ def one(input1, input2):
 
 def two(input):
     string = input.lower().split("bert")
-    print(string)
     if len(string)%2 == 0:
         return ''
     else:
@@ -56,20 +55,31 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
- num = arg1.split()
- num = list(map(int, num)) 
- print(num)
- x =[]
- result = 0
- for i in num:
-     y = i
-     while y > 0:
-         rem = y % 10
-         result = result + rem
-         y = int(y/10)
-     x.append(y)
- print(x)
- return max(x)
+ #num = arg1.split()
+ #num = list(map(int, num)) 
+ #print(num)
+ #x =[]
+ #result = 0
+ #for i in num:
+ #    y = i
+  #   while y > 0:
+  #       rem = y % 10
+  #       result = result + rem
+  #       y = int(y/10)
+  #   x.append(y)
+ #print(x)
+ #return max(x)
+	numbers = arg1.split()
+	values = []
+	for i, el in enumerate(numbers):
+		c = 0
+		for p in range(len(el)):
+			c += int(el[p])
+		values.append(c)
+	return max(values)
+
+
+
 
 	# <QUESTION 5>
 
@@ -97,7 +107,14 @@ def four(arg1):
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
 def five(input):
-	return []
+	order = input.split(',')
+	names = []
+	i = 2
+	while i < len(order):
+		if order[i] == 'False':
+			names.append(order[i-2])
+		i = i+4
+	return list(dict.fromkeys(names))
 
 	# <QUESTION 6>
 
@@ -118,8 +135,12 @@ def five(input):
 
 
 def six(input):
-
-    return False
+	for i in range(len(input)):
+		if input[i] =='i' and input[i+1] =='e' and input[i-1] != 'c':
+			return True
+		elif input[i] == 'e' and input[i+1]=='i' and input[i-1] == 'c':
+			return True
+	return False
 
 
 
